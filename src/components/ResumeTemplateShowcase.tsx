@@ -4,7 +4,6 @@ import { useNavigate } from 'react-router-dom';
 import { Carousel, CarouselContent, CarouselItem, CarouselPrevious, CarouselNext } from '@/components/ui/carousel';
 import { Button } from '@/components/ui/button';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
-import { ResumeData } from '@/types/resume';
 import { Mail, Phone, MapPin, Globe, Linkedin, ChevronRight } from 'lucide-react';
 
 const ResumeTemplateShowcase: React.FC = () => {
@@ -125,15 +124,18 @@ const ResumeTemplateShowcase: React.FC = () => {
                 </div>
               </CarouselItem>
             </CarouselContent>
+            
+            {/* Navigation controls - both desktop and mobile within the Carousel context */}
             <div className="hidden md:block">
               <CarouselPrevious className="-left-12" />
               <CarouselNext className="-right-12" />
             </div>
+            
+            <div className="md:hidden flex justify-center gap-4 mt-6">
+              <CarouselPrevious className="static translate-y-0 mx-0" />
+              <CarouselNext className="static translate-y-0 mx-0" />
+            </div>
           </Carousel>
-          <div className="md:hidden flex justify-center gap-4 mt-6">
-            <CarouselPrevious className="static translate-y-0 mx-0" />
-            <CarouselNext className="static translate-y-0 mx-0" />
-          </div>
         </div>
         
         <div className="mt-10 text-center">
