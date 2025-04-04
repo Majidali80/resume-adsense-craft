@@ -3,6 +3,7 @@ import React from 'react';
 import { ResumeData } from '@/types/resume';
 import { format } from 'date-fns';
 import { Mail, Phone, MapPin, Globe, Linkedin } from 'lucide-react';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 interface ResumeTemplateProps {
   data: ResumeData;
@@ -19,13 +20,36 @@ const formatDate = (dateString: string): string => {
 
 const ProfessionalTemplate: React.FC<ResumeTemplateProps> = ({ data }) => {
   const { personalInfo, experiences, educations, skillGroups } = data;
+  
+  // Get initials for avatar fallback
+  const getInitials = (name: string) => {
+    return name
+      .split(' ')
+      .map(part => part[0])
+      .join('')
+      .toUpperCase()
+      .slice(0, 2);
+  };
 
   return (
-    <div className="resume-paper text-resume-darkGray">
-      {/* Header */}
+    <div className="resume-paper text-resume-darkGray relative">
+      {/* Header with Avatar */}
       <div className="border-b border-resume-blue pb-4 mb-6">
-        <h1 className="text-3xl font-bold text-resume-blue">{personalInfo.fullName}</h1>
-        <h2 className="text-xl text-resume-darkGray mt-1">{personalInfo.title}</h2>
+        <div className="flex items-center gap-4">
+          <Avatar className="h-20 w-20 border-2 border-resume-blue">
+            {personalInfo.profileImage ? (
+              <AvatarImage src={personalInfo.profileImage} alt={personalInfo.fullName} />
+            ) : (
+              <AvatarFallback className="bg-resume-lightBlue text-resume-blue">
+                {getInitials(personalInfo.fullName)}
+              </AvatarFallback>
+            )}
+          </Avatar>
+          <div>
+            <h1 className="text-3xl font-bold text-resume-blue">{personalInfo.fullName}</h1>
+            <h2 className="text-xl text-resume-darkGray mt-1">{personalInfo.title}</h2>
+          </div>
+        </div>
         
         {/* Contact Info */}
         <div className="flex flex-wrap gap-x-6 gap-y-2 mt-3 text-sm">
@@ -159,6 +183,11 @@ const ProfessionalTemplate: React.FC<ResumeTemplateProps> = ({ data }) => {
           </div>
         </div>
       )}
+
+      {/* ResumeCraft Watermark */}
+      <div className="absolute bottom-4 right-4 opacity-50 text-xs text-resume-blue">
+        Generated with ResumeCraft
+      </div>
     </div>
   );
 };

@@ -9,6 +9,8 @@ import NotFound from "./pages/NotFound";
 import HomePage from "./pages/HomePage";
 import EditorPage from "./pages/EditorPage";
 import PreviewPage from "./pages/PreviewPage";
+import AboutPage from "./pages/AboutPage";
+import ContactPage from "./pages/ContactPage";
 import { ResumeProvider } from "./context/ResumeContext";
 import AdScript from "./components/AdScript";
 
@@ -27,6 +29,8 @@ const App = () => (
             <Route path="/home" element={<HomePage />} />
             <Route path="/editor" element={<EditorPage />} />
             <Route path="/preview" element={<PreviewPage />} />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/contact" element={<ContactPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

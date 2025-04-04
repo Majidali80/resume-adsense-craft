@@ -3,6 +3,7 @@ import React from 'react';
 import { ResumeData } from '@/types/resume';
 import { format } from 'date-fns';
 import { Mail, Phone, MapPin, Globe, Linkedin } from 'lucide-react';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 
 interface ResumeTemplateProps {
   data: ResumeData;
@@ -19,9 +20,19 @@ const formatDate = (dateString: string): string => {
 
 const ModernTemplate: React.FC<ResumeTemplateProps> = ({ data }) => {
   const { personalInfo, experiences, educations, skillGroups } = data;
+  
+  // Get initials for avatar fallback
+  const getInitials = (name: string) => {
+    return name
+      .split(' ')
+      .map(part => part[0])
+      .join('')
+      .toUpperCase()
+      .slice(0, 2);
+  };
 
   return (
-    <div className="resume-paper">
+    <div className="resume-paper relative bg-gradient-to-r from-blue-50 to-indigo-50">
       {/* Header - Modern version with sidebar */}
       <div className="flex flex-col md:flex-row">
         {/* Main content */}
@@ -98,6 +109,19 @@ const ModernTemplate: React.FC<ResumeTemplateProps> = ({ data }) => {
         
         {/* Sidebar */}
         <div className="md:w-1/3 md:pl-6 md:ml-6 md:border-l border-resume-lightBlue">
+          {/* Profile Image */}
+          <div className="flex justify-center mb-6">
+            <Avatar className="h-32 w-32 border-4 border-white shadow-md">
+              {personalInfo.profileImage ? (
+                <AvatarImage src={personalInfo.profileImage} alt={personalInfo.fullName} />
+              ) : (
+                <AvatarFallback className="bg-blue-100 text-blue-600">
+                  {getInitials(personalInfo.fullName)}
+                </AvatarFallback>
+              )}
+            </Avatar>
+          </div>
+          
           {/* Contact Info */}
           <div className="mb-6">
             <h3 className="text-lg font-semibold mb-3 border-b-2 border-resume-lightBlue pb-1">CONTACT</h3>
@@ -164,6 +188,11 @@ const ModernTemplate: React.FC<ResumeTemplateProps> = ({ data }) => {
             </div>
           )}
         </div>
+      </div>
+      
+      {/* ResumeCraft Watermark */}
+      <div className="absolute bottom-4 right-4 opacity-50 text-xs text-resume-blue">
+        Generated with ResumeCraft
       </div>
     </div>
   );

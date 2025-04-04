@@ -10,7 +10,7 @@ const ResumeTemplateShowcase: React.FC = () => {
   const navigate = useNavigate();
   
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-gradient-to-br from-gray-50 to-blue-50">
       <div className="container px-4 md:px-6">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold tracking-tighter text-resume-blue mb-2">Choose Your Perfect Resume Template</h2>
@@ -121,6 +121,39 @@ const ResumeTemplateShowcase: React.FC = () => {
                   </div>
                   <h3 className="text-xl font-semibold text-center">Creative Template</h3>
                   <p className="text-center text-gray-500">Modern design with custom colors for tech and creative fields</p>
+                </div>
+              </CarouselItem>
+
+              {/* Elegant Template */}
+              <CarouselItem>
+                <div className="flex flex-col gap-4">
+                  <div className="bg-gradient-to-r from-pink-50 to-purple-50 shadow-lg rounded-lg p-6 overflow-hidden">
+                    <div className="flex flex-col-reverse md:flex-row gap-6">
+                      <div className="flex-grow">
+                        <h2 className="text-xl font-semibold mb-2 text-purple-700">Financial Analyst</h2>
+                        <p className="text-sm line-clamp-3">Detail-oriented financial professional with expertise in market analysis, investment strategies, and portfolio management.</p>
+                        <div className="mt-4 space-y-2 text-sm">
+                          <div className="flex items-center">
+                            <Mail className="h-4 w-4 mr-2 text-purple-600" />
+                            <span>emma@example.com</span>
+                          </div>
+                          <div className="flex items-center">
+                            <Phone className="h-4 w-4 mr-2 text-purple-600" />
+                            <span>(555) 234-5678</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="md:w-1/3 flex flex-col items-center">
+                        <Avatar className="h-24 w-24 mb-4 border-4 border-purple-300">
+                          <AvatarImage src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=facearea&facepad=4&w=300&h=300&q=80" alt="Professional photo" />
+                          <AvatarFallback>EW</AvatarFallback>
+                        </Avatar>
+                        <h1 className="text-xl font-bold text-center text-purple-700">Emma Williams</h1>
+                      </div>
+                    </div>
+                  </div>
+                  <h3 className="text-xl font-semibold text-center">Elegant Template</h3>
+                  <p className="text-center text-gray-500">Sophisticated design with subtle gradients for finance and consulting</p>
                 </div>
               </CarouselItem>
             </CarouselContent>
