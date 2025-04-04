@@ -1,4 +1,3 @@
-
 export interface PersonalInfo {
   fullName: string;
   title: string;
@@ -8,6 +7,7 @@ export interface PersonalInfo {
   website?: string;
   linkedin?: string;
   summary: string;
+  profileImage?: string;
 }
 
 export interface Experience {
@@ -69,6 +69,7 @@ export const initialResumeData: ResumeData = {
     website: 'alexjohnson.dev',
     linkedin: 'linkedin.com/in/alexjohnson',
     summary: 'Dedicated software developer with 7+ years of experience building web and mobile applications. Passionate about creating clean, efficient code and collaborating with cross-functional teams to deliver high-quality products.',
+    profileImage: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&auto=format&fit=facearea&facepad=2.25&w=300&h=300&q=80'
   },
   experiences: [
     {

@@ -5,6 +5,8 @@ import { Button } from '@/components/ui/button';
 import { ChevronRight, FileText, Settings, Download } from 'lucide-react';
 import AdBanner from '@/components/AdBanner';
 import Footer from '@/components/Footer';
+import ResumeTemplateShowcase from '@/components/ResumeTemplateShowcase';
+import HowToSection from '@/components/HowToSection';
 
 const HomePage = () => {
   const navigate = useNavigate();
@@ -41,8 +43,14 @@ const HomePage = () => {
         {/* Ad Banner */}
         <AdBanner adSlot="1234567890" className="py-2" />
         
+        {/* Resume Template Showcase */}
+        <ResumeTemplateShowcase />
+        
+        {/* How To Section */}
+        <HowToSection />
+        
         {/* Features Section */}
-        <section className="py-12 md:py-16">
+        <section className="py-12 md:py-16 bg-white">
           <div className="container px-4 md:px-6">
             <div className="grid gap-6 md:grid-cols-3">
               <div className="flex flex-col items-center space-y-2 border rounded-lg p-6 bg-white shadow-sm">

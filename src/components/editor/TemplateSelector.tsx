@@ -16,6 +16,11 @@ const templates = [
     name: 'Modern',
     description: 'A contemporary layout with sidebar for skills and contact info.',
   },
+  {
+    id: 'creative',
+    name: 'Creative',
+    description: 'A colorful template with profile photo for creative industries.',
+  },
 ];
 
 const TemplateSelector: React.FC = () => {
@@ -31,7 +36,7 @@ const TemplateSelector: React.FC = () => {
         <RadioGroup
           value={selectedTemplate}
           onValueChange={updateTemplate}
-          className="grid grid-cols-1 md:grid-cols-2 gap-4"
+          className="grid grid-cols-1 md:grid-cols-3 gap-4"
         >
           {templates.map((template) => (
             <div key={template.id}>
