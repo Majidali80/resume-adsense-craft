@@ -31,6 +31,36 @@ const templates = [
     name: 'Minimalist',
     description: 'A clean, minimalist dark template with modern typography.',
   },
+  {
+    id: 'technical',
+    name: 'Technical',
+    description: 'A dark theme optimized for tech roles with emphasis on technical skills.',
+  },
+  {
+    id: 'executive',
+    name: 'Executive',
+    description: 'A premium dark template with gold accents for leadership positions.',
+  },
+  {
+    id: 'academic',
+    name: 'Academic',
+    description: 'Designed for researchers, professors and academic professionals.',
+  },
+  {
+    id: 'simple',
+    name: 'Simple',
+    description: 'A clean, straightforward dark template for any profession.',
+  },
+  {
+    id: 'creativeFull',
+    name: 'Creative Full',
+    description: 'A vibrant, colorful template for creative professionals with modern design.',
+  },
+  {
+    id: 'compactDark',
+    name: 'Compact Dark',
+    description: 'A space-efficient dark template that maximizes content visibility.',
+  },
 ];
 
 const TemplateSelector: React.FC = () => {
@@ -69,7 +99,13 @@ const TemplateSelector: React.FC = () => {
                     template.id === 'modern' ? 'bg-indigo-900 text-white' :
                     template.id === 'creative' ? 'bg-teal-100' :
                     template.id === 'elegant' ? 'bg-gray-900 text-amber-400' :
-                    'bg-[#1A1F2C] text-white'
+                    template.id === 'minimalist' ? 'bg-[#1A1F2C] text-white' :
+                    template.id === 'technical' ? 'bg-gradient-to-r from-gray-900 to-gray-800 text-blue-300' :
+                    template.id === 'executive' ? 'bg-gradient-to-br from-gray-900 to-gray-800 text-amber-400' :
+                    template.id === 'academic' ? 'bg-blue-950 text-blue-300' :
+                    template.id === 'simple' ? 'bg-gray-950 text-white' :
+                    template.id === 'creativeFull' ? 'bg-gradient-to-br from-purple-800 to-indigo-900 text-white' :
+                    'bg-black text-zinc-200'
                   }`}
                 >
                   <span className="text-sm">{template.name}</span>
