@@ -14,12 +14,22 @@ const templates = [
   {
     id: 'modern',
     name: 'Modern',
-    description: 'A contemporary layout with sidebar for skills and contact info.',
+    description: 'A contemporary dark layout with sidebar for skills and contact info.',
   },
   {
     id: 'creative',
     name: 'Creative',
     description: 'A colorful template with profile photo for creative industries.',
+  },
+  {
+    id: 'elegant',
+    name: 'Elegant',
+    description: 'A sophisticated dark template with gold accents, perfect for executives.',
+  },
+  {
+    id: 'minimalist',
+    name: 'Minimalist',
+    description: 'A clean, minimalist dark template with modern typography.',
   },
 ];
 
@@ -36,7 +46,7 @@ const TemplateSelector: React.FC = () => {
         <RadioGroup
           value={selectedTemplate}
           onValueChange={updateTemplate}
-          className="grid grid-cols-1 md:grid-cols-3 gap-4"
+          className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4"
         >
           {templates.map((template) => (
             <div key={template.id}>
@@ -53,8 +63,16 @@ const TemplateSelector: React.FC = () => {
                     : 'border-border hover:border-primary/50'
                 }`}
               >
-                <div className="w-full h-32 bg-resume-gray mb-3 rounded flex items-center justify-center">
-                  <span className="text-sm">{template.name} Template</span>
+                <div 
+                  className={`w-full h-32 mb-3 rounded flex items-center justify-center ${
+                    template.id === 'professional' ? 'bg-blue-50' :
+                    template.id === 'modern' ? 'bg-indigo-900 text-white' :
+                    template.id === 'creative' ? 'bg-teal-100' :
+                    template.id === 'elegant' ? 'bg-gray-900 text-amber-400' :
+                    'bg-[#1A1F2C] text-white'
+                  }`}
+                >
+                  <span className="text-sm">{template.name}</span>
                 </div>
                 <div className="text-center">
                   <div className="font-medium">{template.name}</div>

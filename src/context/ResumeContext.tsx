@@ -1,9 +1,7 @@
-
 import React, { createContext, useContext, useState } from 'react';
 import { ResumeData, initialResumeData } from '@/types/resume';
 import { v4 as uuidv4 } from 'uuid';
 
-// Add uuid dependency
 interface ResumeContextType {
   resumeData: ResumeData;
   updatePersonalInfo: (info: Partial<ResumeData['personalInfo']>) => void;
@@ -21,6 +19,7 @@ interface ResumeContextType {
   removeSkill: (groupId: string, skillId: string) => void;
   updateTemplate: (templateId: string) => void;
   resetToDemo: () => void;
+  uploadProfileImage: (imageUrl: string) => void;
 }
 
 const ResumeContext = createContext<ResumeContextType | null>(null);
@@ -42,6 +41,10 @@ export const ResumeProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     };
     setResumeData(updated);
     saveToLocalStorage(updated);
+  };
+
+  const uploadProfileImage = (imageUrl: string) => {
+    updatePersonalInfo({ profileImage: imageUrl });
   };
 
   const addExperience = () => {
@@ -234,6 +237,7 @@ export const ResumeProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     removeSkill,
     updateTemplate,
     resetToDemo,
+    uploadProfileImage,
   };
 
   return (

@@ -32,15 +32,15 @@ const ProfessionalTemplate: React.FC<ResumeTemplateProps> = ({ data }) => {
   };
 
   return (
-    <div className="resume-paper text-resume-darkGray relative">
+    <div className="resume-paper text-resume-darkGray relative bg-gradient-to-r from-slate-50 to-gray-50">
       {/* Header with Avatar */}
       <div className="border-b border-resume-blue pb-4 mb-6">
         <div className="flex items-center gap-4">
-          <Avatar className="h-20 w-20 border-2 border-resume-blue">
+          <Avatar className="h-24 w-24 border-2 border-resume-blue">
             {personalInfo.profileImage ? (
               <AvatarImage src={personalInfo.profileImage} alt={personalInfo.fullName} />
             ) : (
-              <AvatarFallback className="bg-resume-lightBlue text-resume-blue">
+              <AvatarFallback className="bg-resume-lightBlue text-resume-blue text-xl">
                 {getInitials(personalInfo.fullName)}
               </AvatarFallback>
             )}
@@ -162,7 +162,7 @@ const ProfessionalTemplate: React.FC<ResumeTemplateProps> = ({ data }) => {
                   {group.skills.map((skill) => (
                     <div 
                       key={skill.id}
-                      className="px-2 py-1 text-xs rounded bg-resume-gray"
+                      className="px-2 py-1 text-xs rounded bg-resume-lightBlue text-resume-darkBlue"
                     >
                       {skill.name}
                       {skill.level && (
@@ -185,8 +185,10 @@ const ProfessionalTemplate: React.FC<ResumeTemplateProps> = ({ data }) => {
       )}
 
       {/* ResumeCraft Watermark */}
-      <div className="absolute bottom-4 right-4 opacity-50 text-xs text-resume-blue">
-        Generated with ResumeCraft
+      <div className="absolute bottom-4 right-4 flex items-center gap-1 opacity-50 text-xs text-resume-blue">
+        <span>Created with</span>
+        <span className="font-semibold">ResumeCraft</span>
+        <span>by Majid Ali</span>
       </div>
     </div>
   );
