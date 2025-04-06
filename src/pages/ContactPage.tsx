@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
-import { Mail, Phone, Send, GitHub, Linkedin } from 'lucide-react';
+import { Mail, Phone, Send, Github, Linkedin } from 'lucide-react';
 
 const ContactPage = () => {
   const { toast } = useToast();
@@ -173,7 +173,7 @@ const ContactPage = () => {
                         href="#"
                         className="bg-gray-100 hover:bg-gray-200 p-3 rounded-full transition-colors"
                       >
-                        <GitHub className="h-5 w-5" />
+                        <Github className="h-5 w-5" />
                       </a>
                       <a 
                         href="#"
