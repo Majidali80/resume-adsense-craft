@@ -10,9 +10,9 @@ const AdScript = () => {
           document.head.removeChild(existingScript);
         }
 
-        // Create and add the new AdSense script
+        // Create and add the provided AdSense script
         const script = document.createElement('script');
-        script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1234567890123456'; // Replace with your actual AdSense publisher ID
+        script.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7217348742748729'; // Your actual AdSense publisher ID
         script.async = true;
         script.crossOrigin = 'anonymous';
         script.onerror = () => {
